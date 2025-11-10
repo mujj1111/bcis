@@ -73,31 +73,16 @@
     100% { opacity: 1; }
 }
 
-		.testimonials__grid {
+.testimonials__grid {
   display: flex;
   gap: 20px;
-  overflow-x: auto;
+  overflow: hidden; /* hide scrollbar */
   scroll-snap-type: x mandatory;
-  padding-bottom: 10px;
-  scrollbar-width: thin; /* for Firefox */
-  scrollbar-color: #ccc transparent;
-}
-
-.testimonials__grid::-webkit-scrollbar {
-  height: 8px;
-}
-
-.testimonials__grid::-webkit-scrollbar-thumb {
-  background-color: #ccc;
-  border-radius: 4px;
-}
-
-.testimonials__grid::-webkit-scrollbar-track {
-  background: transparent;
+  animation: scrollTestimonials 25s linear infinite;
 }
 
 .testimonial-card {
-  flex: 0 0 300px; /* width of each card */
+  flex: 0 0 300px;
   scroll-snap-align: start;
   background: #fff;
   border-radius: 12px;
@@ -109,6 +94,13 @@
 .testimonial-card:hover {
   transform: translateY(-5px);
 }
+
+/* Keyframes for continuous scrolling */
+@keyframes scrollTestimonials {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Adjust based on # of cards */
+}
+
 
 	</style>
 </head>
@@ -381,6 +373,25 @@
                             </div>
                         </div>
                     </div>
+
+					<div class="testimonial-card fade-in-up">
+						<div class="testimonial__quote">
+							<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" opacity="0.2">
+								<path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+							</svg>
+						</div>
+						<p class="testimonial__text">
+							EzyDocs is the best application and easy to use unlike tally.
+						</p>
+						<div class="testimonial__author">
+							<div class="testimonial__avatar">P</div>
+							<div>
+								<p class="testimonial__name">Priya</p>
+								<p class="testimonial__company">PRIYA TRADERS</p>
+							</div>
+						</div>
+					</div>
+					
                 </div>
             </div>
         </section>
