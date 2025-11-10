@@ -76,30 +76,38 @@
 .testimonials__grid {
   display: flex;
   gap: 20px;
-  overflow: hidden; /* hide scrollbar */
+  overflow: hidden;
   scroll-snap-type: x mandatory;
-  animation: scrollTestimonials 25s linear infinite;
+  animation: scrollTestimonials 30s linear infinite;
 }
 
 .testimonial-card {
-  flex: 0 0 300px;
+  flex: 0 0 320px; /* slightly wider for balance */
   scroll-snap-align: start;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   padding: 20px;
   transition: transform 0.3s ease;
+  min-height: 200px;
 }
 
 .testimonial-card:hover {
   transform: translateY(-5px);
+  animation-play-state: paused;
 }
 
-/* Keyframes for continuous scrolling */
+/* Continuous horizontal scrolling */
 @keyframes scrollTestimonials {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* Adjust based on # of cards */
+  100% { transform: translateX(-50%); } /* move halfway since we duplicate */
 }
+
+/* Optional: pause animation on hover */
+.testimonials__grid:hover {
+  animation-play-state: paused;
+}
+
 
 
 	</style>
