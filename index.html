@@ -45,6 +45,33 @@
 	.hidden {
   	display: none;
 	}
+		
+.product-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.tag-coming-soon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff9800;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    animation: pulse 2s infinite;
+}
+
+/* Optional subtle animation */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
 
 	</style>
 </head>
@@ -132,12 +159,13 @@
                             </svg>
                         </div>
                         <h3 class="product-card__title">EzyDocs</h3>
-                        <p class="product-card__description">Streamline your document management with intelligent organization, search, and collaboration tools</p>
-                        <a href="#" class="product-card__link">Learn More →</a>
+                        <p class="product-card__description">Not just a set of tools, but a complete self-service application to streamline your B2B billing process, allowing you to manage client invoicing efficiently.</p>
+                        <a href="https://ezydocs.in" class="product-card__link">Learn More →</a>
                     </div>
 
                     <!-- Product 2: Estamping -->
                     <div class="product-card fade-in-up">
+						<span class="tag-coming-soon">Coming Soon</span>
                         <div class="product-card__icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
@@ -152,6 +180,7 @@
 
                     <!-- Product 3: FastFile GST Returns -->
                     <div class="product-card fade-in-up">
+						<span class="tag-coming-soon">Coming Soon</span>
                         <div class="product-card__icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="1" x2="12" y2="23"></line>
