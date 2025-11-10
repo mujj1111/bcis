@@ -73,6 +73,43 @@
     100% { opacity: 1; }
 }
 
+		.testimonials__grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+  scrollbar-width: thin; /* for Firefox */
+  scrollbar-color: #ccc transparent;
+}
+
+.testimonials__grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.testimonials__grid::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.testimonials__grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.testimonial-card {
+  flex: 0 0 300px; /* width of each card */
+  scroll-snap-align: start;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
 	</style>
 </head>
 <body>
