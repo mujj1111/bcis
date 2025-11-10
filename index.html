@@ -73,43 +73,98 @@
     100% { opacity: 1; }
 }
 
-.testimonials__grid {
-  display: flex;
-  gap: 20px;
+.testimonials {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f9fafb;
+  position: relative;
   overflow: hidden;
-  scroll-snap-type: x mandatory;
-  animation: scrollTestimonials 30s linear infinite;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
 }
 
 .testimonial-card {
-  flex: 0 0 320px; /* slightly wider for balance */
-  scroll-snap-align: start;
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  padding: 25px;
   background: #fff;
+  margin: 0 10px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  padding: 20px;
-  transition: transform 0.3s ease;
-  min-height: 200px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-.testimonial-card:hover {
-  transform: translateY(-5px);
-  animation-play-state: paused;
+.testimonial__text {
+  font-style: italic;
+  margin: 15px 0;
 }
 
-/* Continuous horizontal scrolling */
-@keyframes scrollTestimonials {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* move halfway since we duplicate */
+.testimonial__author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-/* Optional: pause animation on hover */
-.testimonials__grid:hover {
-  animation-play-state: paused;
+.testimonial__avatar {
+  background: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.3s;
+}
 
+.carousel-btn:hover {
+  background: #0056b3;
+}
 
+.carousel-btn.prev {
+  left: -20px;
+}
+
+.carousel-btn.next {
+  right: -20px;
+}
+
+@media (min-width: 768px) {
+  .testimonial-card {
+    flex: 0 0 50%; /* Show 2 cards on medium screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonial-card {
+    flex: 0 0 33.33%; /* Show 3 cards on large screens */
+  }
+}
 	</style>
 </head>
 <body>
@@ -322,103 +377,108 @@
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <section class="testimonials" id="testimonials">
-            <div class="container">
-                <div class="section__header">
-                    <h2 class="section__title">What Our Clients Say</h2>
-                    <p class="section__subtitle">Trusted by businesses worldwide</p>
-                </div>
-
-                <div class="testimonials__grid">
-                    <div class="testimonial-card fade-in-up">
-                        <div class="testimonial__quote">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" opacity="0.2">
-                                <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
-                            </svg>
-                        </div>
-                        <p class="testimonial__text">BCIS transformed our B2B billing process within few minutes.</p>
-                        <div class="testimonial__author">
-                            <div class="testimonial__avatar">S</div>
-                            <div>
-                                <p class="testimonial__name">Suhaib</p>
-                                <p class="testimonial__company">TRIPLE H METALS  SCRAP</p>
-                            </div>
-                        </div>
-                    </div>
-
-					<div class="testimonial-card fade-in-up">
-						<div class="testimonial__quote">
-							<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" opacity="0.2">
-								<path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
-							</svg>
-						</div>
-						<p class="testimonial__text">
-							EzyDocs made our invoicing and e-waybill generation seamless. What used to take hours now happens in just a few clicks.
-						</p>
-						<div class="testimonial__author">
-							<div class="testimonial__avatar">R</div>
-							<div>
-								<p class="testimonial__name">Ramesh Kumar</p>
-								<p class="testimonial__company">Shree Balaji Logistics</p>
-							</div>
-						</div>
-					</div>
-
-
-                    <div class="testimonial-card fade-in-up">
-                        <div class="testimonial__quote">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" opacity="0.2">
-                                <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
-                            </svg>
-                        </div>
-                        <p class="testimonial__text">The automation saved us 40% of manual work. Saving lakhs of rupees.</p>
-                        <div class="testimonial__author">
-                            <div class="testimonial__avatar">T</div>
-                            <div>
-                                <p class="testimonial__name">Tameem</p>
-                                <p class="testimonial__company">Zone metal scarp private Ltd</p>
-                            </div>
-                        </div>
-                    </div>
-
-					<div class="testimonial-card fade-in-up">
-						<div class="testimonial__quote">
-							<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" opacity="0.2">
-								<path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
-							</svg>
-						</div>
-						<p class="testimonial__text">
-							EzyDocs is the best application and easy to use unlike tally.
-						</p>
-						<div class="testimonial__author">
-							<div class="testimonial__avatar">P</div>
-							<div>
-								<p class="testimonial__name">Priya</p>
-								<p class="testimonial__company">PRIYA TRADERS</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="testimonial-card fade-in-up">
-                        <div class="testimonial__quote">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" opacity="0.2">
-                                <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
-                            </svg>
-                        </div>
-                        <p class="testimonial__text">BCIS transformed our B2B billing process within few minutes.</p>
-                        <div class="testimonial__author">
-                            <div class="testimonial__avatar">S</div>
-                            <div>
-                                <p class="testimonial__name">Siva</p>
-                                <p class="testimonial__company">S M ENTERPRISES</p>
-                            </div>
-                        </div>
-                    </div>
-					
-                </div>
-            </div>
-        </section>
+       <!-- Testimonials Section -->
+		<section class="testimonials" id="testimonials">
+		    <div class="container">
+		        <div class="section__header">
+		            <h2 class="section__title">What Our Clients Say</h2>
+		            <p class="section__subtitle">Trusted by businesses worldwide</p>
+		        </div>
+		
+		        <div class="carousel">
+		            <div class="carousel-track">
+		                <!-- Card 1 -->
+		                <div class="testimonial-card">
+		                    <div class="testimonial__quote">
+		                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" opacity="0.2">
+		                            <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+		                        </svg>
+		                    </div>
+		                    <p class="testimonial__text">BCIS transformed our B2B billing process within few minutes.</p>
+		                    <div class="testimonial__author">
+		                        <div class="testimonial__avatar">S</div>
+		                        <div>
+		                            <p class="testimonial__name">Suhaib</p>
+		                            <p class="testimonial__company">TRIPLE H METALS SCRAP</p>
+		                        </div>
+		                    </div>
+		                </div>
+		
+		                <!-- Card 2 -->
+		                <div class="testimonial-card">
+		                    <div class="testimonial__quote">
+		                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" opacity="0.2">
+		                            <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+		                        </svg>
+		                    </div>
+		                    <p class="testimonial__text">EzyDocs made our invoicing and e-waybill generation seamless. What used to take hours now happens in just a few clicks.</p>
+		                    <div class="testimonial__author">
+		                        <div class="testimonial__avatar">R</div>
+		                        <div>
+		                            <p class="testimonial__name">Ramesh Kumar</p>
+		                            <p class="testimonial__company">Shree Balaji Logistics</p>
+		                        </div>
+		                    </div>
+		                </div>
+		
+		                <!-- Card 3 -->
+		                <div class="testimonial-card">
+		                    <div class="testimonial__quote">
+		                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" opacity="0.2">
+		                            <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+		                        </svg>
+		                    </div>
+		                    <p class="testimonial__text">The automation saved us 40% of manual work. Saving lakhs of rupees.</p>
+		                    <div class="testimonial__author">
+		                        <div class="testimonial__avatar">T</div>
+		                        <div>
+		                            <p class="testimonial__name">Tameem</p>
+		                            <p class="testimonial__company">Zone Metal Scrap Pvt Ltd</p>
+		                        </div>
+		                    </div>
+		                </div>
+		
+		                <!-- Card 4 -->
+		                <div class="testimonial-card">
+		                    <div class="testimonial__quote">
+		                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" opacity="0.2">
+		                            <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+		                        </svg>
+		                    </div>
+		                    <p class="testimonial__text">EzyDocs is the best application and easy to use unlike Tally.</p>
+		                    <div class="testimonial__author">
+		                        <div class="testimonial__avatar">P</div>
+		                        <div>
+		                            <p class="testimonial__name">Priya</p>
+		                            <p class="testimonial__company">PRIYA TRADERS</p>
+		                        </div>
+		                    </div>
+		                </div>
+		
+		                <!-- Card 5 -->
+		                <div class="testimonial-card">
+		                    <div class="testimonial__quote">
+		                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" opacity="0.2">
+		                            <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+		                        </svg>
+		                    </div>
+		                    <p class="testimonial__text">BCIS support is super fast — we got everything customized for our needs.</p>
+		                    <div class="testimonial__author">
+		                        <div class="testimonial__avatar">S</div>
+		                        <div>
+		                            <p class="testimonial__name">Siva</p>
+		                            <p class="testimonial__company">S M ENTERPRISES</p>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		
+		            <!-- Navigation -->
+		            <button class="carousel-btn prev">&#10094;</button>
+		            <button class="carousel-btn next">&#10095;</button>
+		        </div>
+		    </div>
+		</section>
 
         <!-- Contact Us Section -->
         <section class="contact-section" id="contact">
@@ -751,6 +811,38 @@ document.getElementById("contactForm").addEventListener("submit", async function
     alert("Something went wrong while sending your message.");
   }
 });
+
+
+const track = document.querySelector('.carousel-track');
+const prevBtn = document.querySelector('.carousel-btn.prev');
+const nextBtn = document.querySelector('.carousel-btn.next');
+
+let index = 0;
+const cards = document.querySelectorAll('.testimonial-card');
+const totalCards = cards.length;
+
+function updateCarousel() {
+  const width = cards[0].getBoundingClientRect().width;
+  track.style.transform = `translateX(-${index * width}px)`;
+}
+
+nextBtn.addEventListener('click', () => {
+  if (index < totalCards - 1) index++;
+  else index = 0;
+  updateCarousel();
+});
+
+prevBtn.addEventListener('click', () => {
+  if (index > 0) index--;
+  else index = totalCards - 1;
+  updateCarousel();
+});
+
+// Auto-slide every 5 seconds
+setInterval(() => {
+  nextBtn.click();
+}, 5000);
+
 </script>
 
 </body>
